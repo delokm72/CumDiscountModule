@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <prostor_cumdiscount>
+            <general>
+                <enabled>0</enabled>
+                <timeout>30</timeout>
+                <ttl>3600</ttl>
+                <thresholds>{"_1712683200000_1":{"amount":"4000","discount":"3"},"_1712683200001_2":{"amount":"8000","discount":"5"}}</thresholds>
+            </general>
+        </prostor_cumdiscount>
+    </default>
+</config>
