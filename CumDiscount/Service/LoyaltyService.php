@@ -42,14 +42,14 @@ class LoyaltyService
         }
 
         $cacheKey = $this->getCacheKey($customerId, $storeId);
-//        $cached = $this->cache->load($cacheKey);
-//        if ($cached) {
-//            try {
-//                $data = $this->serializer->unserialize($cached);
-//                return (float)($data['spent_amount'] ?? 0.0);
-//            } catch (\Throwable) {
-//            }
-//        }
+        $cached = $this->cache->load($cacheKey);
+        if ($cached) {
+            try {
+                $data = $this->serializer->unserialize($cached);
+                return (float)($data['spent_amount'] ?? 0.0);
+            } catch (\Throwable) {
+            }
+        }
 
         $url =
             rtrim($baseUrl, '/') . self::API_PATH . '?customer_id=' . $customerId . '&window_days=' . self::WINDOW_DAYS;
