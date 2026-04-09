@@ -16,7 +16,6 @@ class DiscountResolverTest extends TestCase
     {
         $this->configMock = $this->createMock(Configuration::class);
 
-        // LoyaltyService тут не потрібен
         $this->discount = new Discount(
             $this->configMock,
             $this->createMock(\Prostor\CumDiscount\Service\LoyaltyService::class),
