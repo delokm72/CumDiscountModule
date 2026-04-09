@@ -2,17 +2,18 @@
 Налаштування в адмінці, для тестових потреб використовуйте заглушку mock.test?amount=5000 де 5000 тестова відповідь сервера для суми
 <img width="1274" height="810" alt="admin" src="https://github.com/user-attachments/assets/9772ba20-1596-4b29-b5d6-c7522dee03b3" />
 Товар містить атрибут для виключення з додаткової знижки
-<img width="1276" height="726" alt="Screenshot from 2026-04-09 22-17-20" src="https://github.com/user-attachments/assets/dc446d19-d4e0-4e4b-8aa3-17a2257f438c" />
+<img width="1276" height="726" alt="Screenshot from 2026-04-09 22-17-20" src="https://github.com/user-attachments/assets/ec9f4e67-a2a9-4efb-99f6-9c7cd34c1556" />
 Протестовано роботу після каталожних правил ціни і без інших правил, для сум без знижки, 3%, 5%
 Архітектура:
 Для кастмізації вибрано використовувати кастомний тотал як нативний шлях для вирішення такої задачі в М2. Тотал викликає LoyaltyService для отримання розміру знижки. 
 Спочатку перевіряєтсья чи є знижка в кеші, якщо ні йде виклик LoyaltyApiClient для отримання данних з зовнішнього серверу. 
 Для тестового урл використовується метод getMockLoyaltyData що повертає тестові данні сумісні з реальним форматом. Данні записуються в кеш. 
 Використовуєтсья CacheInterface і М2 відповідно до налаштувань магазину зберігає данні в редіс чи альтернативному кеші. Для відображення в корзині/чекауті додано кастомізацію леятуів.
-<img width="1160" height="206" alt="image" src="https://github.com/user-attachments/assets/ca2e42d4-35bc-48ab-851a-fab551cd0df3" />
+<img width="1160" height="206" alt="Screenshot from 2026-04-10 00-03-12" src="https://github.com/user-attachments/assets/aa3dd3b7-ff10-417b-bdfe-72bd8ef32abb" />
 **Знімки екрану з рандомного проекта так-як використання чистої м2 певної версії не було вказано.**
 Зображення по тест-кейсам:
 1)Знижка 5% до товару вартістю 57.90(другий товар в цьому випадку буз з включеним атрибутом Promo Excluded), 5.9*0.5 = 2.9
-<img width="1274" height="810" alt="5%" src="https://github.com/user-attachments/assets/b8d1be9d-7c86-4f5d-9981-cc4713338588" />
+<img width="1274" height="810" alt="5%" src="https://github.com/user-attachments/assets/591f60d9-f433-4060-a520-9d44ba82930c" />
 2)Знижка 3% до всієї корзини. 60.9*0.03=1.83
-<img width="1317" height="840" alt="3%" src="https://github.com/user-attachments/assets/bd25dadf-966c-458b-9d15-ad87e2007383" />
+<img width="1317" height="840" alt="3%" src="https://github.com/user-attachments/assets/5212d71d-d8dd-45a4-9109-0616308216d6" />
+
