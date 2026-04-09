@@ -1,6 +1,6 @@
 Модуль для надання додаткової знижки клієнту базуючись на розмірі його покупок за останні 90 днів(данні з стороннього сервісу)
 Налаштування в адмінці, для тестових потреб використовуйте заглушку mock.test?amount=5000 де 5000 тестова відповідь сервера для суми
-<img width="1274" height="810" alt="Screenshot from 2026-04-09 22-42-25" src="https://github.com/user-attachments/assets/aaf12ac7-062b-4611-b0a3-711ad4677f8a" />
+<img width="1274" height="810" alt="admin" src="https://github.com/user-attachments/assets/9772ba20-1596-4b29-b5d6-c7522dee03b3" />
 Товар містить атрибут для виключення з додаткової знижки
 <img width="1276" height="726" alt="Screenshot from 2026-04-09 22-17-20" src="https://github.com/user-attachments/assets/dc446d19-d4e0-4e4b-8aa3-17a2257f438c" />
 Протестовано роботу після каталожних правил ціни і без інших правил, для сум без знижки, 3%, 5%
