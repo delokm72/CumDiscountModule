@@ -51,6 +51,7 @@ class LoyaltyApiClient
                 throw new \RuntimeException('Loyalty API error, status: ' . $status);
             }
             if (!$response) {
+                $this->logger->warning('Empty response from loyalty API for URL: ' . $url);
                 return [];
             }
 

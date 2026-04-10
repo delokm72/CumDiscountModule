@@ -6,6 +6,7 @@ namespace Prostor\CumDiscount\Service;
 use Prostor\CumDiscount\Model\Config\Configuration;
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\Serialize\Serializer\Json;
+use Prostor\CumDiscount\Logger\Logger as ProstorLogger;
 
 class LoyaltyService
 {
@@ -24,7 +25,8 @@ class LoyaltyService
         private readonly Configuration    $configuration,
         private readonly CacheInterface   $cache,
         private readonly Json             $serializer,
-        private readonly LoyaltyApiClient $apiClient
+        private readonly LoyaltyApiClient $apiClient,
+        private readonly ProstorLogger    $logger
     ) {
     }
 
@@ -60,7 +62,9 @@ class LoyaltyService
             $this->configuration->getTimeout($storeId)
         );
         if (!isset($data['spent_amount']) || !is_numeric($data['spent_amount'])) {
-            return 0.0;
+            // Invalid response from API, return 0.0 and save cache entry to do not DDOS the API
+            $this->logger->warning('Invalid response from loyalty API: ' . $url . ' Response: ' . json_encode($data));
+            $data['spent_amount'] = 0.0;
         }
         $ttl = $this->configuration->getTtl($storeId);
         $this->cache->save(
